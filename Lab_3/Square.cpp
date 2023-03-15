@@ -25,7 +25,7 @@ void Square::setUpperLeftCornerX(double upperLeftCornerX) {
 }
 
 void Square::setUpperLeftCornerY(double upperLeftCornerY) {
-    Square::upperLeftCornerY = upperLeftCornerY;
+    this->upperLeftCornerY = upperLeftCornerY;
 }
 
 void Square::setSideOfSquare(double sideOfSquare) {
@@ -35,6 +35,7 @@ void Square::setSideOfSquare(double sideOfSquare) {
 void Square::setAngleOfRotation(double angleOfRotation) {
     Square::angleOfRotation = angleOfRotation;
 }
+
 
 double Square::getArea() const {
     return area;
