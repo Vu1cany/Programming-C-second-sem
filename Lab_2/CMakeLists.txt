@@ -3,4 +3,4 @@ project(Lab_2)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Lab_2 main.cpp StringParser.cpp StringParser.h)
+add_executable(Lab_2 main.cpp StringParser.cpp StringParser.h StringParserMenu.cpp StringParserMenu.h)

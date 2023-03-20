@@ -12,22 +12,23 @@ public:
 
     StringParser(string parsableString);
 
-    void addSeparator(string &separator);
+    void addSeparator(char separator);
 
     void removeAllSeparators();
 
     string getNextSubstring();
 
-    void indicateAnalyseFinish();
 private:
     string parsableString;
-    bool parseSuccessfully = false;
-    int nextSubstringIndex = 0;
+    bool parseSuccessfully;
+    size_t nextSubstringIndex;
 
     vector<string> parsedStrings;
-    vector<string> separators;
+    vector<char> separators;
 
     void split();
+
+    void indicateAnalyseFinish();
 };
 
 

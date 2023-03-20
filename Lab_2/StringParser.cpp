@@ -6,36 +6,67 @@ StringParser::StringParser(std::string parsableString){
     this->parsableString = parsableString;
 }
 
-void StringParser::addSeparator(string &separator) {
+void StringParser::addSeparator(char separator) {
     separators.push_back(separator);
     parseSuccessfully = false;
-    parsedStrings.clear();
-    nextSubstringIndex = 0;
-
-    //Добавить логику обнуления массивов
 }
 
-
 string StringParser::getNextSubstring() {
-    if (nextSubstringIndex >= parsedStrings.size()){
-        cout << "Подстрок больше нет, возвращена пустая строка";
+    if (!parseSuccessfully){
+        split();
+    }
+    if (nextSubstringIndex == parsedStrings.size()){
         return "";
-
-    } else if (nextSubstringIndex == parsedStrings.size() - 1){
-        cout << "Возвращена последня подстрока, подстрок больше нет." << "\n";
     }
     return parsedStrings[nextSubstringIndex++];
 }
 
 void StringParser::removeAllSeparators() {
-
-    //Добавить логику обнуления массивов
+    parsedStrings.clear();
+    separators.clear();
+    nextSubstringIndex = 0;
 }
 
-void StringParser::indicateAnalyseFinish() {
-
+void StringParser::indicateAnalyseFinish(){
+    if (parseSuccessfully){
+        cout << "Parse process successfully!" << "\n";
+    } else {
+        cout << "Parse process was failed!" << "\n";
+    }
 }
 
 void StringParser::split() {
+    size_t substringIndex = 0;
+    nextSubstringIndex = 0;
+    parsedStrings.clear();
+    parsedStrings.emplace_back();
+    parseSuccessfully = false;
 
+    for (int i = 0; i < parsableString.length(); ++i) {
+        if (i == parsableString.length() - 1){
+            parseSuccessfully = true;
+        }
+
+        bool isSeparator = false;
+        for (char separator : separators) {
+            if (separator == parsableString[i]){
+
+                if (parsedStrings[parsedStrings.size() - 1].length() != 0){
+                    substringIndex++;
+                    parsedStrings.emplace_back();
+                }
+
+                isSeparator = true;
+                break;
+            }
+        }
+
+        if (isSeparator){
+            continue;
+        }
+
+        parsedStrings[substringIndex].push_back(parsableString[i]);
+    }
+
+    indicateAnalyseFinish();
 }
