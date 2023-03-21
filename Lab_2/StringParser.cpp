@@ -25,6 +25,7 @@ void StringParser::removeAllSeparators() {
     parsedStrings.clear();
     separators.clear();
     nextSubstringIndex = 0;
+    parseSuccessfully = false;
 }
 
 void StringParser::indicateAnalyseFinish(){
