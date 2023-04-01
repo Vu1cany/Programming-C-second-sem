@@ -55,4 +55,8 @@ public:
     virtual unsigned int size() = 0;
 };
 
+class IFigure : public BaseCObject, public IDialogueInitiable, public IPhysObject, public IPrintable, public IGeoFig{
+
+};
+
 #endif //LAB_4_INTERFACES_H
