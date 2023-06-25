@@ -1,6 +1,5 @@
 #ifndef LAB_4_RECTANGLE_H
 #define LAB_4_RECTANGLE_H
-
 #include "../Interfaces.h"
 #include <iostream>
 #include <cmath>
@@ -36,6 +35,5 @@ public:
 
     unsigned int size() override;
 };
-
 
 #endif //LAB_4_RECTANGLE_H

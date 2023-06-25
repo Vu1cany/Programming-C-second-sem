@@ -13,7 +13,7 @@ template <int pow, typename N> N powFun(N a){
 
 template <const int N, typename T>
 class MyQueue {
-private:
+private::
     T *array = new T[N];
     size_t head;
     size_t tail;
